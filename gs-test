@@ -1,0 +1,25 @@
+<div id="weather-widget">
+  <h3>Weather</h3>
+  <div id="weather-info">Loading...</div>
+</div>
+<style>
+  #weather-widget {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px;
+    font-family: Arial, sans-serif;
+  }
+  #weather-widget h3 {
+    margin-top: 0;
+  }
+</style>
+<script>
+  async function fetchWeather() {
+    const response = await fetch('https://api.example.com/weather');
+    const data = await response.json();
+    document.getElementById('weather-info').innerText = `Temperature: ${data.temp}°C`;
+  }
+
+  fetchWeather();
+</script>
